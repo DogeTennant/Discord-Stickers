@@ -22,7 +22,7 @@
 const fs   = require("fs");
 const path = require("path");
 
-// ── Args ──────────────────────────────────────────────────────────────────────
+//  Args 
 
 const RAW_BASE = (process.argv[2] || "").replace(/\/$/, "");
 
@@ -38,7 +38,7 @@ if (!fs.existsSync(STICKERS_DIR)) {
     process.exit(1);
 }
 
-// ── Walk the folder tree ──────────────────────────────────────────────────────
+//  Walk the folder tree 
 
 const SUPPORTED = /\.(gif|png|apng)$/i;
 
@@ -83,7 +83,7 @@ function walk(dir, category) {
     return results;
 }
 
-// ── Generate & write ──────────────────────────────────────────────────────────
+//  Generate & write 
 
 const stickers = walk(STICKERS_DIR, null);
 stickers.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
